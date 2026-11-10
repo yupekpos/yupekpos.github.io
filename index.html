@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YupekPOS: касса и учёт / POS & Inventory</title>
+<meta name="description" content="YupekPOS: простая касса для небольшого магазина. Продажи, склад, штрихкоды, чеки и отчёты. Скачать для Windows, macOS и Linux.">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<style>
+:root{--navy:#0B2E4A;--teal:#0F6B6E;--gold:#F4C95D;--cream:#FFF3D6;--ink:#10252f;--muted:#5b6b73;--line:#e3e8ea;--bg:#f6f8f9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--teal)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.top{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:20px}
+.brand img{width:36px;height:36px;border-radius:9px}
+.lang button{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.lang button:hover{background:rgba(255,255,255,.25)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;padding:36px 0 64px}
+.hero .wrap{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.hero img.logo{width:132px;height:132px;border-radius:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,42px);line-height:1.15}
+.hero p{margin:0;max-width:560px;font-size:18px;color:#d8e8ec}
+section{padding:40px 0}
+h2{margin:0 0 6px;font-size:26px}
+.sub{color:var(--muted);margin:0 0 22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card.rec{border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,201,93,.35)}
+.card h3{margin:0;font-size:19px}
+.card .hint{font-size:14px;color:var(--muted);flex:1}
+.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:9px;font-weight:600;text-align:center}
+.btn:hover{background:var(--navy)}
+.btn.alt{background:#fff;color:var(--teal);border:1px solid var(--teal)}
+.btn.off{background:#cfd8dc;color:#fff;pointer-events:none}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.ver{font-size:14px;color:var(--muted);margin-top:14px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.feat div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.feat b{display:block;margin-bottom:4px}
+.note{background:#fff8e1;border:1px solid #f3dd9a;border-radius:12px;padding:14px 16px;font-size:14px}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[data-l]{display:none}
+html[lang="ru"] [data-l="ru"],html[lang="en"] [data-l="en"]{display:revert}
+/* политика */
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 26px 26px;margin:0 0 28px}
+article h2{margin-top:22px}article h3{font-size:16px;margin:24px 0 6px;color:var(--navy);letter-spacing:.02em}
+article p{margin:8px 0}article ul{margin:8px 0;padding-left:22px}.date{color:var(--muted);font-size:14px}
+.jump{display:flex;gap:10px;margin:22px 0}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap" style="padding-top:14px;padding-bottom:0;justify-content:space-between;gap:12px;flex-wrap:nowrap">
+  <a class="brand" href="./"><img src="assets/icon.svg" alt="">YupekPOS</a>
+  <div class="lang"><button id="lang" type="button">EN</button></div>
+ </div>
+ <div class="wrap" style="padding-top:30px">
+  <img class="logo" src="assets/icon-512.png" alt="YupekPOS">
+  <div>
+   <h1><span data-l="ru">Простая касса для небольшого магазина</span><span data-l="en">A simple point of sale for small shops</span></h1>
+   <p><span data-l="ru">Продажи, склад, штрихкоды, чеки и отчёты. Работает без интернета, данные остаются у вас.</span><span data-l="en">Sales, stock, barcodes, receipts and reports. Works offline, and your data stays with you.</span></p>
+  </div>
+ </div>
+</div>
+
+<section id="download" style="margin-top:-36px;padding-top:0">
+ <div class="wrap">
+  <div class="card" style="padding:22px">
+   <h2><span data-l="ru">Скачать</span><span data-l="en">Download</span></h2>
+   <p class="sub"><span data-l="ru">Программа для компьютера и приложение для Android.</span><span data-l="en">Program for your computer and an Android app.</span></p>
+   <div class="cards">
+    <div class="card" data-os="Android">
+     <h3>Android</h3>
+     <div class="hint"><span data-l="ru">Приложение для телефона и планшета.</span><span data-l="en">App for phones and tablets.</span></div>
+     <span class="btn off">Google Play: <span data-l="ru">скоро</span><span data-l="en">coming soon</span></span>
+    </div>
+    <div class="card" data-os="Windows">
+     <h3>Windows</h3>
+     <div class="hint"><span data-l="ru">Установщик .msi, Windows 10 и новее.</span><span data-l="en">.msi installer, Windows 10 and newer.</span></div>
+     <a class="btn dl" data-ext=".msi" href="RELEASES"><span data-l="ru">Скачать .msi</span><span data-l="en">Download .msi</span></a>
+    </div>
+    <div class="card" data-os="Mac">
+     <h3>macOS</h3>
+     <div class="hint"><span data-l="ru">Образ .dmg для Mac на Apple Silicon.</span><span data-l="en">.dmg image for Apple Silicon Macs.</span></div>
+     <a class="btn dl" data-ext=".dmg" href="RELEASES"><span data-l="ru">Скачать .dmg</span><span data-l="en">Download .dmg</span></a>
+    </div>
+    <div class="card" data-os="Linux">
+     <h3>Linux</h3>
+     <div class="hint"><span data-l="ru">Пакеты для Debian/Ubuntu и Fedora, а также переносной архив.</span><span data-l="en">Packages for Debian/Ubuntu and Fedora, plus a portable archive.</span></div>
+     <div class="row">
+      <a class="btn alt dl" data-ext=".deb" href="RELEASES">.deb</a>
+      <a class="btn alt dl" data-ext=".rpm" href="RELEASES">.rpm</a>
+      <a class="btn alt dl" data-ext=".tar.gz" href="RELEASES">.tar.gz</a>
+     </div>
+    </div>
+   </div>
+   <div class="ver" id="ver"></div>
+  </div>
+  <p class="note" style="margin-top:16px"><span data-l="ru">Установщики пока не имеют цифровой подписи. Windows может показать предупреждение SmartScreen: нажмите «Подробнее», затем «Выполнить в любом случае». На macOS нажмите правой кнопкой на программе и выберите «Открыть».</span><span data-l="en">The installers are not digitally signed yet. Windows may show a SmartScreen warning: click “More info”, then “Run anyway”. On macOS, right-click the app and choose “Open”.</span></p>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2><span data-l="ru">Что умеет</span><span data-l="en">What it does</span></h2>
+  <p class="sub"><span data-l="ru">Всё нужное для небольшой торговой точки.</span><span data-l="en">Everything a small shop needs.</span></p>
+  <div class="feat">
+   <div><b><span data-l="ru">Быстрые продажи</span><span data-l="en">Fast sales</span></b><span data-l="ru">Сканер штрихкодов, розничные и оптовые цены, скидки, отложенные корзины, возвраты и продажа в долг.</span><span data-l="en">Barcode scanner, retail and wholesale prices, discounts, held carts, returns and sales on credit.</span></div>
+   <div><b><span data-l="ru">Склад под контролем</span><span data-l="en">Stock under control</span></b><span data-l="ru">Каталог, остатки, приход, списания, инвентаризация и заказы поставщикам.</span><span data-l="en">Catalog, stock levels, stock-in, write-offs, stocktake and supplier orders.</span></div>
+   <div><b><span data-l="ru">Чеки и отчёты</span><span data-l="en">Receipts and reports</span></b><span data-l="ru">Печать на чековом принтере, история чеков, покупатели и должники, статистика.</span><span data-l="en">Receipt printing, receipt history, customers and debtors, statistics.</span></div>
+   <div><b><span data-l="ru">Ваши данные у вас</span><span data-l="en">Your data stays yours</span></b><span data-l="ru">Работает без интернета, без рекламы и слежки. Синхронизация устройств по Wi-Fi или с вашим сервером.</span><span data-l="en">Works offline, with no ads or tracking. Sync devices over Wi-Fi or with your own server.</span></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div>© 2026 YupekPOS &middot; DEVELOPER_NAME</div>
+  <div><a href="privacy/"><span data-l="ru">Политика конфиденциальности</span><span data-l="en">Privacy Policy</span></a> &middot; <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a></div>
+ </div>
+</footer>
+
+<script>
+const REPO="yupekpos/yupekpos.github.io", PAGE="https://github.com/"+REPO+"/releases/latest";
+const root=document.documentElement, btn=document.getElementById("lang");
+function setLang(l){root.lang=l;btn.textContent=l==="ru"?"EN":"RU";try{localStorage.setItem("lang",l)}catch(e){}}
+let saved=null;try{saved=localStorage.getItem("lang")}catch(e){}
+setLang(saved||((navigator.language||"").toLowerCase().startsWith("ru")?"ru":"en"));
+btn.onclick=()=>setLang(root.lang==="ru"?"en":"ru");
+document.querySelectorAll("a.dl").forEach(a=>a.href=PAGE);
+const ua=navigator.userAgent;
+const mine=/Android/i.test(ua)?"Android":/Windows/i.test(ua)?"Windows":/Mac/i.test(ua)?"Mac":/Linux/i.test(ua)?"Linux":"";
+document.querySelectorAll(".card[data-os]").forEach(c=>{if(c.dataset.os===mine)c.classList.add("rec")});
+fetch("https://api.github.com/repos/"+REPO+"/releases/latest").then(r=>r.ok?r.json():Promise.reject()).then(rel=>{
+  const assets=rel.assets||[];
+  document.querySelectorAll("a.dl").forEach(a=>{
+    const f=assets.find(x=>x.name.toLowerCase().endsWith(a.dataset.ext));
+    if(f)a.href=f.browser_download_url;
+  });
+  document.getElementById("ver").innerHTML=(root.lang==="ru"?"Версия ":"Version ")+rel.tag_name+' &middot; <a href="'+PAGE.replace("/latest","")+'">'+(root.lang==="ru"?"все версии":"all versions")+"</a>";
+}).catch(()=>{});
+</script>
+</body></html>
