@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Удаление данных / Data deletion: YupekPOS</title>
+<meta name="description" content="Как удалить данные приложения YupekPOS. How to delete YupekPOS app data.">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<style>
+:root{--navy:#0B2E4A;--teal:#0F6B6E;--gold:#F4C95D;--cream:#FFF3D6;--ink:#10252f;--muted:#5b6b73;--line:#e3e8ea;--bg:#f6f8f9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--teal)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.top{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:20px}
+.brand img{width:36px;height:36px;border-radius:9px}
+.lang button{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.lang button:hover{background:rgba(255,255,255,.25)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;padding:36px 0 64px}
+.hero .wrap{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.hero img.logo{width:132px;height:132px;border-radius:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,42px);line-height:1.15}
+.hero p{margin:0;max-width:560px;font-size:18px;color:#d8e8ec}
+section{padding:40px 0}
+h2{margin:0 0 6px;font-size:26px}
+.sub{color:var(--muted);margin:0 0 22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card.rec{border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,201,93,.35)}
+.card h3{margin:0;font-size:19px}
+.card .hint{font-size:14px;color:var(--muted);flex:1}
+.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:9px;font-weight:600;text-align:center}
+.btn:hover{background:var(--navy)}
+.btn.alt{background:#fff;color:var(--teal);border:1px solid var(--teal)}
+.btn.off{background:#cfd8dc;color:#fff;pointer-events:none}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.ver{font-size:14px;color:var(--muted);margin-top:14px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.feat div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.feat b{display:block;margin-bottom:4px}
+.note{background:#fff8e1;border:1px solid #f3dd9a;border-radius:12px;padding:14px 16px;font-size:14px}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[data-l]{display:none}
+html[lang="ru"] [data-l="ru"],html[lang="en"] [data-l="en"]{display:revert}
+/* политика */
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 26px 26px;margin:0 0 28px}
+article h2{margin-top:22px}article h3{font-size:16px;margin:24px 0 6px;color:var(--navy);letter-spacing:.02em}
+article p{margin:8px 0}article ul{margin:8px 0;padding-left:22px}.date{color:var(--muted);font-size:14px}
+.jump{display:flex;gap:10px;margin:22px 0}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <a class="brand" href="../"><img src="../assets/icon.svg" alt="">YupekPOS</a>
+</div></header>
+<div class="wrap">
+ <div class="jump"><a class="btn alt" href="#ru">Русский</a><a class="btn alt" href="#en">English</a></div>
+ <article id="ru" lang="ru">
+<h2>Удаление данных: YupekPOS</h2>
+<p>Эта страница объясняет, как удалить данные приложения YupekPOS (разработчик: Nurmamedov Rasul). Где хранятся ваши данные, зависит от того, как вы пользуетесь приложением.</p>
+<h3>1. ДАННЫЕ НА ВАШЕМ УСТРОЙСТВЕ (ТЕЛЕФОН, ПЛАНШЕТ, КОМПЬЮТЕР)</h3>
+<p>Эти данные хранятся только у вас, и вы удаляете их сами. Удаление происходит сразу и необратимо.</p>
+<ul>
+<li>Каталог товаров: откройте «Настройки» и нажмите «Очистить каталог».</li>
+<li>История продаж и чеки: «Настройки» → «Очистить историю продаж».</li>
+<li>Покупатели: раздел «История», вкладка «Клиенты». Удалите клиента из списка. Его чеки и долги остаются в истории продаж, поэтому для полного удаления очистите ещё и историю продаж.</li>
+<li>Всё сразу на Android: настройки телефона → «Приложения» → YupekPOS → «Хранилище» → «Очистить данные». Либо просто удалите приложение.</li>
+<li>Всё сразу на компьютере: удалите программу и папку с данными. Windows: <code>%APPDATA%\YupekPOS</code>. macOS: <code>~/Library/Application Support/YupekPOS</code>. Linux: <code>~/.local/share/YupekPOS</code>.</li>
+</ul>
+<p>Резервные копии, которые вы сохранили сами (на SD-карту, флешку, в Telegram или по почте), удаляются вами отдельно.</p>
+<h3>2. ДАННЫЕ НА СЕРВЕРЕ ВАШЕГО МАГАЗИНА</h3>
+<p>Если синхронизация идёт с сервером, которым управляет ваш магазин или его компания, обратитесь к администратору магазина: он удалит данные на сервере. Разработчик не имеет доступа к таким данным.</p>
+<h3>3. ДАННЫЕ НА СЕРВЕРЕ, КОТОРЫЙ ОБСЛУЖИВАЕТ РАЗРАБОТЧИК</h3>
+<ul>
+<li>Шаг 1. Отправьте письмо на <a href="mailto:s24r28@gmail.com">s24r28@gmail.com</a> с темой «Удаление данных YupekPOS».</li>
+<li>Шаг 2. Укажите название магазина и адрес сервера. Запрос должен прийти от владельца или администратора магазина: данные принадлежат магазину.</li>
+<li>Шаг 3. Мы подтвердим, что запрос отправлен уполномоченным лицом, и удалим данные.</li>
+</ul>
+<p><b>Что удаляется:</b> все данные магазина на сервере: товары и цены, остатки, продажи и чеки, имена и телефоны клиентов, сотрудники, подключённые устройства и журналы.</p>
+<p><b>Что сохраняется:</b> ничего, кроме переписки по самому запросу, если закон требует её хранить.</p>
+<p><b>Срок:</b> в течение 30 дней после подтверждённого запроса.</p>
+ </article>
+ <article id="en" lang="en">
+<h2>Data deletion: YupekPOS</h2>
+<p>This page explains how to delete the data of the YupekPOS app (developer: Nurmamedov Rasul). Where your data is stored depends on how you use the app.</p>
+<h3>1. DATA ON YOUR DEVICE (PHONE, TABLET, COMPUTER)</h3>
+<p>This data is stored only on your device and you delete it yourself. Deletion is immediate and cannot be undone.</p>
+<ul>
+<li>Product catalog: open “Settings” and tap “Clear catalog”.</li>
+<li>Sales history and receipts: “Settings” → “Clear sales history”.</li>
+<li>Customers: “History” section, “Customers” tab. Delete the customer from the list. Their receipts and debts stay in the sales history, so also clear the sales history for complete removal.</li>
+<li>Everything on Android: phone settings → “Apps” → YupekPOS → “Storage” → “Clear data”. Or simply uninstall the app.</li>
+<li>Everything on a computer: uninstall the program and delete its data folder. Windows: <code>%APPDATA%\YupekPOS</code>. macOS: <code>~/Library/Application Support/YupekPOS</code>. Linux: <code>~/.local/share/YupekPOS</code>.</li>
+</ul>
+<p>Backup copies that you saved yourself (to an SD card, a USB drive, Telegram or email) are deleted by you separately.</p>
+<h3>2. DATA ON YOUR SHOP’S SERVER</h3>
+<p>If you synchronize with a server run by your shop or its company, contact the shop administrator, who can delete the data on that server. The developer has no access to such data.</p>
+<h3>3. DATA ON A SERVER OPERATED BY THE DEVELOPER</h3>
+<ul>
+<li>Step 1. Send an email to <a href="mailto:s24r28@gmail.com">s24r28@gmail.com</a> with the subject “YupekPOS data deletion”.</li>
+<li>Step 2. Include the shop name and the server address. The request must come from the shop owner or administrator, because the data belongs to the shop.</li>
+<li>Step 3. We will confirm that the request comes from an authorized person and delete the data.</li>
+</ul>
+<p><b>What is deleted:</b> all the shop’s data on the server: products and prices, stock, sales and receipts, customer names and phone numbers, staff, connected devices and logs.</p>
+<p><b>What is kept:</b> nothing, except the correspondence about the request itself, if the law requires keeping it.</p>
+<p><b>Time frame:</b> within 30 days after a confirmed request.</p>
+ </article>
+</div>
+<footer><div class="wrap"><div>© 2026 YupekPOS</div><div><a href="../privacy/">Privacy Policy</a> &middot; <a href="../">YupekPOS</a></div></div></footer>
+</body></html>
